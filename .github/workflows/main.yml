@@ -1,11 +1,15 @@
 name: continuous integration
 on:
   push:
-    branches: ["**"]
+    branches: [ "**" ]
 jobs:
   test_codebase:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install pip
+        run: python3 -m pip install --upgrade pip
+      - name: Install pytest
+        run: pip install -r requirements.txt
       - name: Run pytest
         run: pytest
