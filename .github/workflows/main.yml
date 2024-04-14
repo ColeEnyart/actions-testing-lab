@@ -1,0 +1,11 @@
+name: continuous integration
+on:
+  push:
+    branches: [**]
+jobs:
+  test_codebase:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pytest
+        run: pytest
